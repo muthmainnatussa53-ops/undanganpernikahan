@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Muthmainnah & Angga</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF6F0',
+                        champagne: '#E6C594',
+                        gold: '#D4AF37',
+                        dustypink: '#E8C5C8',
+                        softpink: '#F7E7E8',
+                        sage: '#8F9E8B',
+                        deepgreen: '#1E332B',
+                        darkgreen: '#13231C',
+                        charcoal: '#2D3748',
+                    },
+                    fontFamily: {
+                        arabic: ['Amiri', 'serif'],
+                        serif: ['Playfair Display', 'Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', filter: 'drop-shadow(0 0 10px rgba(212,175,55,0.3))' },
+                            '50%': { opacity: '0.8', filter: 'drop-shadow(0 0 25px rgba(212,175,55,0.7))' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(25px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styling & Particle Styles -->
+    <style>
+        body {
+            background-color: #13231C;
+            color: #FAF6F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #13231C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(30, 51, 43, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 197, 148, 0.2);
+        }
+
+        .glass-card-light {
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #1E332B;
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFE8B0 0%, #D4AF37 50%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Petal Canvas Container */
+        #petal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Section Transition Dividers */
+        .arabic-title {
+            font-family: 'Amiri', serif;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-darkgreen">
+
+    <!-- Falling Petals Canvas -->
+    <canvas id="petal-canvas"></canvas>
+
+    <!-- Floating Music Controls -->
+    <div id="audio-control" class="fixed bottom-6 right-6 z-40 hidden">
+        <button id="music-toggle-btn" class="w-12 h-12 rounded-full glass-card border border-champagne/40 text-champagne flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+            <i id="music-icon" class="fas fa-music text-lg animate-spin-slow"></i>
+        </button>
+    </div>
+
+    <!-- MAIN INVITATION COVER / OVERLAY -->
+    <section id="cover-screen" class="fixed inset-0 z-50 flex flex-col justify-between items-center text-center p-6 bg-gradient-to-b from-darkgreen via-deepgreen to-darkgreen overflow-y-auto transition-opacity duration-1000">
+        
+        <!-- Top Bismillah & Header -->
+        <div class="w-full max-w-lg mt-6 space-y-3 animate-fade-up">
+            <p class="arabic-title text-2xl md:text-3xl text-gold-gradient tracking-wide">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+            <p class="text-xs tracking-[0.3em] uppercase text-champagne/80 font-medium">The Islamic Digital Wedding Invitation</p>
+        </div>
+
+        <!-- Middle Content: Makkah & Syar'i Couple Vector Illustration -->
+        <div class="w-full max-w-md my-auto py-6 flex flex-col items-center">
+            
+            <!-- Custom Vector SVG: Masjidil Haram & Syar'i Couple (Side/Back View) -->
+            <div class="relative w-full max-w-[320px] aspect-square flex items-center justify-center my-4">
+                
+                <!-- Glow ring -->
+                <div class="absolute inset-0 rounded-full bg-gold/10 animate-pulse-glow"></div>
+                
+                <!-- SVG Illustration: Masjidil Haram, Ka'bah Stars, Syar'i Bride & Groom -->
+                <svg viewBox="0 0 400 400" class="w-full h-full drop-shadow-2xl">
+                    <defs>
+                        <radialGradient id="skyGrad" cx="50%" cy="40%" r="60%">
+                            <stop offset="0%" stop-color="#2D4A3E"/>
+                            <stop offset="100%" stop-color="#13231C"/>
+                        </radialGradient>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFE094"/>
+                            <stop offset="100%" stop-color="#B8860B"/>
+                        </linearGradient>
+                        <linearGradient id="dressGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#FAF0E6"/>
+                            <stop offset="100%" stop-color="#E8C5C8"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Moon & Night Sky Background -->
+                    <circle cx="200" cy="200" r="180" fill="url(#skyGrad)" stroke="#D4AF37" stroke-width="2" stroke-opacity="0.4"/>
+                    <!-- Crescent Moon & Stars -->
+                    <path d="M 270 70 A 25 25 0 1 1 290 110 A 30 30 0 1 0 270 70 Z" fill="#FFE094" opacity="0.9"/>
+                    <circle cx="120" cy="90" r="1.5" fill="#FFF" opacity="0.8"/>
+                    <circle cx="150" cy="70" r="2" fill="#FFF" opacity="0.9"/>
+                    <circle cx="230" cy="110" r="1.5" fill="#FFF" opacity="0.7"/>
+                    <circle cx="100" cy="140" r="1" fill="#FFF" opacity="0.6"/>
+
+                    <!-- Minarets & Ka'bah Silhouette -->
+                    <!-- Left Minaret -->
+                    <rect x="70" y="140" width="16" height="110" fill="#1C3328" />
+                    <polygon points="70,140 78,110 86,140" fill="#D4AF37" />
+                    <!-- Right Minaret -->
+                    <rect x="314" y="140" width="16" height="110" fill="#1C3328" />
+                    <polygon points="314,140 322,110 330,140" fill="#D4AF37" />
+                    
+                    <!-- Ka'bah -->
+                    <rect x="155" y="170" width="90" height="85" rx="3" fill="#0A120E" stroke="#223C30" stroke-width="2"/>
+                    <!-- Kiswah Gold Band -->
+                    <rect x="155" y="188" width="90" height="10" fill="url(#goldGrad)"/>
+
+                    <!-- Golden Light Arches -->
+                    <path d="M 100 250 Q 200 180 300 250" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+
+                    <!-- SYAR'I COUPLE CARTOON ILLUSTRATION (Back/Side View - Syar'i Bride in Niqab/Hijab & Groom) -->
+                    <!-- Groom (Right / Side View) -->
+                    <g transform="translate(15, 0)">
+                        <!-- Body / Jas & Koko Sunda-Betawi Collar -->
+                        <path d="M 215 250 Q 240 240 260 255 L 265 370 L 210 370 Z" fill="#1A2D25" stroke="#E6C594" stroke-width="1"/>
+                        <path d="M 235 245 L 235 370" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 2"/>
+                        <!-- Head / Peci Hijau Gold -->
+                        <path d="M 222 215 L 250 215 L 252 232 L 220 232 Z" fill="#13231C" stroke="#D4AF37" stroke-width="1.5"/>
+                        <!-- Hair Back -->
+                        <path d="M 220 230 Q 235 235 252 230 L 250 242 Q 235 248 222 242 Z" fill="#111"/>
+                    </g>
+
+                    <!-- Bride (Syar'i Hijab Lebar + Niqab/Cadar + Elegant Ivory Gown - Side/Back View) -->
+                    <g transform="translate(-10, 0)">
+                        <!-- Flowing Gown Base -->
+                        <path d="M 130 370 Q 150 260 175 250 Q 200 260 215 370 Z" fill="url(#dressGrad)" stroke="#D4AF37" stroke-width="1"/>
+                        <!-- Soft Lace Overlay Motif -->
+                        <path d="M 140 370 Q 175 290 205 370" fill="none" stroke="#FFF" stroke-width="1.5" opacity="0.6"/>
+                        
+                        <!-- Syar'i Hijab Lebar (Covering back and chest down to waist) -->
+                        <path d="M 152 205 Q 175 190 198 205 Q 212 250 175 285 Q 138 250 152 205 Z" fill="#FAF6F0" stroke="#E8C5C8" stroke-width="1.5"/>
+                        
+                        <!-- Crown / Tiara Accent -->
+                        <path d="M 165 200 Q 175 192 185 200" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+                        <circle cx="175" cy="194" r="2" fill="#D4AF37"/>
+                        
+                        <!-- Soft Bridal Veil / Selendang Syar'i Transparent Layer -->
+                        <path d="M 155 205 Q 175 220 195 205 Q 215 290 175 350 Q 135 290 155 205 Z" fill="#FFF" opacity="0.25"/>
+                    </g>
+
+                    <!-- Small Flower Vector Accents at Bottom -->
+                    <circle cx="120" cy="350" r="6" fill="#E8C5C8" opacity="0.8"/>
+                    <circle cx="280" cy="350" r="6" fill="#E8C5C8" opacity="0.8"/>
+                    <path d="M 110 355 Q 120 345 130 355" stroke="#D4AF37" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Names -->
+            <div class="space-y-1 my-2">
+                <h1 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold tracking-wide">
+                    Muthmainnatus Sa'diyah Mamu
+                </h1>
+                <p class="text-champagne font-serif text-lg my-1">♡</p>
+                <h1 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold tracking-wide">
+                    Angga April Liano
+                </h1>
+            </div>
+
+            <p class="text-sm text-champagne/90 font-medium tracking-widest mt-2">
+                JUMAT, 9 OKTOBER 2026
+            </p>
+        </div>
+
+        <!-- Bottom Guest Card & Open Invitation Button -->
+        <div class="w-full max-w-sm glass-card rounded-2xl p-5 mb-4 shadow-2xl space-y-4 border border-gold/30 animate-fade-up">
+            <div class="text-center space-y-1">
+                <p class="text-xs text-champagne/70 uppercase tracking-widest">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h3 id="guest-name-display" class="font-serif text-xl font-semibold text-white capitalize">
+                    Tamu Undangan
+                </h3>
+                <p class="text-[11px] text-gray-300 italic">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Dalam Hari Bahagia Kami.</p>
+            </div>
+
+            <button id="btn-open-invitation" class="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-gold via-yellow-500 to-champagne text-darkgreen font-semibold text-sm tracking-wider uppercase shadow-lg hover:shadow-gold/50 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer">
+                <i class="fas fa-envelope-open text-base group-hover:rotate-12 transition-transform"></i>
+                <span>🤍 Buka Undangan</span>
+            </button>
+        </div>
+
+    </section>
+
+    <!-- MAIN INVITATION CONTENT (Hidden until button click) -->
+    <main id="main-content" class="relative hidden opacity-0 transition-opacity duration-1000">
+
+        <!-- SECTION 1: HERO HEADER -->
+        <section class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative bg-gradient-to-b from-darkgreen via-deepgreen to-darkgreen overflow-hidden">
+            <!-- Background Arch Frame -->
+            <div class="absolute inset-4 md:inset-10 border border-gold/20 rounded-3xl pointer-events-none"></div>
+            
+            <div class="max-w-xl mx-auto space-y-6 z-10 py-12">
+                <div class="inline-block px-4 py-1.5 rounded-full glass-card text-gold text-xs tracking-widest uppercase border border-gold/30">
+                    Walimatul 'Ursy
+                </div>
+
+                <h2 class="arabic-title text-3xl md:text-4xl text-gold-gradient">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
+                
+                <p class="text-xs md:text-sm text-champagne/80 max-w-md mx-auto leading-relaxed px-4">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+                </p>
+
+                <!-- BRIDE & GROOM CARDS -->
+                <div class="space-y-8 my-8">
+                    <!-- Bride Card -->
+                    <div class="glass-card rounded-2xl p-6 text-center space-y-3 relative group border-l-4 border-l-gold">
+                        <!-- Tiny Vector Bride Badge -->
+                        <div class="w-16 h-16 mx-auto rounded-full bg-deepgreen border border-gold/40 flex items-center justify-center">
+                            <i class="fas fa-heart text-gold text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-gold-gradient">Muthmainnatus Sa'diyah Mamu</h3>
+                        <p class="text-xs text-champagne/90 leading-relaxed">
+                            Putri pertama dari<br>
+                            <span class="font-semibold text-white">Bapak Thahir Mamu, S.Pd.I., M.Si.</span><br>
+                            & <span class="font-semibold text-white">Ibu Masroh Maemunah, S.Pd.I.</span>
+                        </p>
+                    </div>
+
+                    <div class="font-serif text-2xl text-gold italic">dengan</div>
+
+                    <!-- Groom Card -->
+                    <div class="glass-card rounded-2xl p-6 text-center space-y-3 relative group border-r-4 border-r-gold">
+                        <!-- Tiny Vector Groom Badge -->
+                        <div class="w-16 h-16 mx-auto rounded-full bg-deepgreen border border-gold/40 flex items-center justify-center">
+                            <i class="fas fa-ring text-gold text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-gold-gradient">Angga April Liano</h3>
+                        <p class="text-xs text-champagne/90 leading-relaxed">
+                            Putra pertama dari<br>
+                            <span class="font-semibold text-white">Bapak Asep Dikdik</span><br>
+                            & <span class="font-semibold text-white">Ibu Lilih Husnul Khotimah</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: AKAD NIKAH (NO RECEPTION) -->
+        <section class="py-20 px-6 relative bg-deepgreen/90 text-center">
+            <div class="max-w-2xl mx-auto space-y-8">
+                
+                <div class="space-y-2">
+                    <p class="text-xs tracking-[0.3em] uppercase text-gold font-semibold">Acara Inti</p>
+                    <h2 class="font-serif text-3xl md:text-4xl text-gold-gradient font-bold">🕊️ AKAD NIKAH</h2>
+                    <div class="w-24 h-0.5 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                </div>
+
+                <!-- Akad Card -->
+                <div class="glass-card rounded-3xl p-8 space-y-6 relative overflow-hidden border border-gold/30 shadow-2xl">
+                    <!-- Masjid Courtyard Vector Graphic -->
+                    <div class="w-20 h-20 mx-auto rounded-full bg-darkgreen/80 flex items-center justify-center border border-champagne/30 text-gold text-3xl shadow-inner">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="font-serif text-xl font-bold text-white">Jumat, 9 Oktober 2026</p>
+                        <p class="text-gold font-semibold text-lg">Pukul 09.00 WIB</p>
+                        <p class="text-xs text-champagne/80">Waktu Setempat</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-gold/20 space-y-2">
+                        <p class="text-xs uppercase tracking-wider text-champagne/70">Lokasi Acara</p>
+                        <p class="font-semibold text-base text-white">📍 Pelataran Masjidil Haram, Makkah</p>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Masjidil+Haram+Makkah" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 py-3 px-8 rounded-xl bg-gradient-to-r from-gold to-yellow-600 text-darkgreen font-semibold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all cursor-pointer">
+                        <i class="fas fa-map-marked-alt text-sm"></i>
+                        <span>Lihat Lokasi</span>
+                    </a>
+                </div>
+
+                <div class="text-xs text-champagne/60 italic max-w-md mx-auto">
+                    *Acara diselenggarakan secara khidmat khusus untuk pelaksanaan Akad Nikah.
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: COUNTDOWN -->
+        <section class="py-16 px-6 bg-darkgreen text-center relative">
+            <div class="max-w-xl mx-auto space-y-8">
+                
+                <div class="space-y-2">
+                    <p class="text-xs tracking-widest uppercase text-champagne">Menghitung Hari</p>
+                    <h2 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold">“Menuju Janji Suci”</h2>
+                </div>
+
+                <!-- Cute Cartoon Couple Minimal Vector Graphic near countdown -->
+                <div class="flex justify-center items-center gap-4 text-gold/80">
+                    <svg viewBox="0 0 100 50" class="w-24 h-12">
+                        <!-- Cartoon Bride Head & Groom Head Silhouette -->
+                        <circle cx="35" cy="25" r="14" fill="#FAF6F0" stroke="#D4AF37" stroke-width="1.5"/>
+                        <circle cx="65" cy="25" r="14" fill="#1E332B" stroke="#D4AF37" stroke-width="1.5"/>
+                        <path d="M 45 25 L 55 25" stroke="#E8C5C8" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <!-- Timer Display -->
+                <div id="countdown-container" class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto">
+                    <div class="glass-card rounded-2xl p-3 md:p-4 text-center border border-gold/30">
+                        <span id="cd-days" class="font-serif text-2xl md:text-4xl font-bold text-gold">00</span>
+                        <p class="text-[10px] md:text-xs text-champagne/80 uppercase tracking-wider mt-1">Hari</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-3 md:p-4 text-center border border-gold/30">
+                        <span id="cd-hours" class="font-serif text-2xl md:text-4xl font-bold text-gold">00</span>
+                        <p class="text-[10px] md:text-xs text-champagne/80 uppercase tracking-wider mt-1">Jam</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-3 md:p-4 text-center border border-gold/30">
+                        <span id="cd-minutes" class="font-serif text-2xl md:text-4xl font-bold text-gold">00</span>
+                        <p class="text-[10px] md:text-xs text-champagne/80 uppercase tracking-wider mt-1">Menit</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-3 md:p-4 text-center border border-gold/30">
+                        <span id="cd-seconds" class="font-serif text-2xl md:text-4xl font-bold text-gold">00</span>
+                        <p class="text-[10px] md:text-xs text-champagne/80 uppercase tracking-wider mt-1">Detik</p>
+                    </div>
+                </div>
+
+                <div id="countdown-arrived-msg" class="hidden glass-card rounded-2xl p-4 text-gold font-serif text-lg">
+                    🤍 Alhamdulillah, hari yang dinanti telah tiba 🤍
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: OUR JOURNEY (TIMELINE WITH 7 CUSTOM CARTOON CHAPTERS) -->
+        <section class="py-20 px-6 bg-gradient-to-b from-darkgreen via-deepgreen to-darkgreen relative">
+            <div class="max-w-3xl mx-auto space-y-12">
+                
+                <div class="text-center space-y-3">
+                    <p class="text-xs tracking-[0.3em] uppercase text-champagne font-semibold">Perjalanan Cinta</p>
+                    <h2 class="font-serif text-3xl md:text-4xl text-gold-gradient font-bold">OUR JOURNEY</h2>
+                    <p class="text-xs md:text-sm text-champagne/80 italic max-w-lg mx-auto">
+                        “Sebuah kisah yang bermula dari sebuah komunitas, lalu Allah tuliskan menjadi sebuah pernikahan.”
+                    </p>
+                </div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12 relative before:absolute before:inset-0 before:left-6 md:before:left-1/2 before:-ml-px before:w-0.5 before:bg-gradient-to-b before:from-gold/10 before:via-gold/50 before:to-gold/10">
+
+                    <!-- Chapter 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <!-- Icon Dot -->
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            1
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pr-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: Komunitas -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Community Mentor & Student Vector -->
+                                        <!-- Classroom/Board -->
+                                        <rect x="20" y="15" width="160" height="70" rx="6" fill="#13231C" stroke="#D4AF37" stroke-width="1"/>
+                                        <!-- Muthmainnah Mentor (Left) -->
+                                        <path d="M 50 65 Q 60 40 70 65 Z" fill="#E8C5C8"/>
+                                        <circle cx="60" cy="38" r="8" fill="#FAF6F0"/>
+                                        <!-- Book / Qur'an Stand -->
+                                        <path d="M 90 60 L 110 60 L 100 70 Z" fill="#D4AF37"/>
+                                        <!-- Angga Student (Right) -->
+                                        <path d="M 130 65 Q 140 45 150 65 Z" fill="#2C483B"/>
+                                        <circle cx="140" cy="40" r="7" fill="#13231C" stroke="#D4AF37"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">🌷 01 — Sebuah Komunitas</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Muthmainnah adalah seorang pembimbing di sebuah komunitas, sedangkan Angga adalah salah satu santri di komunitas tersebut.
+                                    Tidak pernah terbayangkan bahwa dari sebuah komunitas, Allah akan mempertemukan dua hati dalam sebuah kisah yang indah.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:flex-row-reverse group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            2
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pl-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: Smartphone Message -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Phone & Message Bubble -->
+                                        <rect x="75" y="10" width="50" height="80" rx="8" fill="#13231C" stroke="#D4AF37" stroke-width="1.5"/>
+                                        <rect x="83" y="25" width="34" height="20" rx="4" fill="#1E332B"/>
+                                        <path d="M 90 32 L 110 32" stroke="#E6C594" stroke-width="2"/>
+                                        <path d="M 90 38 L 102 38" stroke="#E8C5C8" stroke-width="2"/>
+                                        <!-- Glowing Message Wings -->
+                                        <path d="M 50 30 Q 65 20 75 30" fill="none" stroke="#D4AF37" stroke-dasharray="2 2"/>
+                                        <path d="M 150 30 Q 135 20 125 30" fill="none" stroke="#D4AF37" stroke-dasharray="2 2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">💌 02 — Sebuah Pesan</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Muthmainnah menghubungi Angga dengan niat sederhana: mengajaknya menjadi admin komunitas.
+                                    Namun ternyata, Allah menuliskan sesuatu yang jauh lebih indah dari sekadar sebuah amanah.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            3
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pr-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: Growing Seed of Love -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Sprouting Plant with Hearts -->
+                                        <path d="M 100 80 L 100 45" stroke="#8F9E8B" stroke-width="3"/>
+                                        <path d="M 100 65 Q 80 50 75 60" fill="none" stroke="#8F9E8B" stroke-width="2"/>
+                                        <path d="M 100 55 Q 120 40 125 50" fill="none" stroke="#8F9E8B" stroke-width="2"/>
+                                        <!-- Heart Flower -->
+                                        <path d="M 100 35 C 90 20 75 35 100 50 C 125 35 110 20 100 35 Z" fill="#E8C5C8" stroke="#D4AF37"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">🤍 03 — Benih Cinta</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Di antara komunikasi dan proses mengenal satu sama lain, Allah menumbuhkan benih cinta di antara kami.
+                                    Sesuatu yang tidak pernah kami rencanakan, tetapi ternyata telah Allah tuliskan.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:flex-row-reverse group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            4
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pl-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: First Proposal Rejection -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Proposal Box & Soft Cloud Rain -->
+                                        <rect x="85" y="50" width="30" height="25" rx="4" fill="#13231C" stroke="#D4AF37"/>
+                                        <path d="M 90 50 Q 100 40 110 50" fill="none" stroke="#D4AF37"/>
+                                        <path d="M 70 25 Q 100 15 130 25" stroke="#E6C594" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">💍 04 — Lamaran Pertama</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Untuk pertama kalinya, Angga menyampaikan kesungguhannya.
+                                    Namun jawaban yang datang adalah penolakan.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 5 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            5
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pr-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: Second Proposal Emotional -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Soft Tear/Hope Drop Vector -->
+                                        <path d="M 100 20 C 80 50 80 75 100 75 C 120 75 120 50 100 20 Z" fill="#1E332B" stroke="#D4AF37" stroke-width="1.5"/>
+                                        <path d="M 100 40 L 100 60" stroke="#E8C5C8" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">🌧️ 05 — Lamaran Kedua</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Untuk kedua kalinya, Angga kembali menyampaikan niat baiknya.
+                                    Namun kembali mendapat jawaban yang sama.
+                                    Ditolak untuk kedua kalinya.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 6: ACCEPTANCE -->
+                    <div class="relative flex flex-col md:flex-row items-center md:flex-row-reverse group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-r from-gold to-yellow-300 text-darkgreen font-bold text-sm flex items-center justify-center border-4 border-darkgreen shadow-xl z-10 animate-bounce">
+                            6
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pl-10 w-full">
+                            <div class="glass-card rounded-2xl p-6 space-y-4 border-2 border-gold shadow-2xl bg-gradient-to-br from-deepgreen via-darkgreen to-deepgreen">
+                                <!-- Vector SVG Illustration: Blooming Roses Acceptance -->
+                                <div class="w-full h-40 rounded-xl bg-darkgreen flex items-center justify-center p-3 border border-gold/40">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Blooming Golden Rose Vector -->
+                                        <circle cx="100" cy="50" r="28" fill="#E8C5C8" opacity="0.3"/>
+                                        <path d="M 100 25 C 85 25 75 40 100 70 C 125 40 115 25 100 25 Z" fill="#D4AF37"/>
+                                        <path d="M 90 40 Q 100 30 110 40" stroke="#FAF6F0" fill="none" stroke-width="2"/>
+                                        <!-- Sparks -->
+                                        <circle cx="65" cy="30" r="2" fill="#FFE094"/>
+                                        <circle cx="135" cy="30" r="2" fill="#FFE094"/>
+                                    </svg>
+                                </div>
+                                <div class="text-center md:text-left space-y-1">
+                                    <h3 class="font-serif text-xl font-bold text-gold-gradient">🌹 06 — Lamaran Ketiga</h3>
+                                    <div class="inline-block px-3 py-1 rounded-md bg-gold/20 border border-gold/40 text-gold font-bold text-xs tracking-wider">
+                                        AHAD, 4 OKTOBER 2026
+                                    </div>
+                                </div>
+                                <p class="text-xs text-white leading-relaxed font-medium">
+                                    “Untuk ketiga kalinya, Angga menyampaikan kesungguhannya.
+                                    Dan kali ini...
+                                    <span class="text-gold font-bold">lamaran itu diterima. 🤍</span>”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 7 -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-darkgreen font-bold text-xs flex items-center justify-center border-4 border-darkgreen shadow-lg z-10">
+                            7
+                        </div>
+                        <div class="ml-14 md:ml-0 md:w-1/2 md:pr-10 w-full">
+                            <div class="glass-card rounded-2xl p-5 space-y-4 border border-gold/20 hover:border-gold/50 transition-colors">
+                                <!-- Vector SVG Illustration: Walking to Masjidil Haram -->
+                                <div class="w-full h-36 rounded-xl bg-darkgreen/60 flex items-center justify-center p-3 border border-gold/20">
+                                    <svg viewBox="0 0 200 100" class="w-full h-full">
+                                        <!-- Ka'bah Silhouette & Couple Path -->
+                                        <rect x="150" y="30" width="30" height="30" fill="#0A120E" stroke="#D4AF37"/>
+                                        <path d="M 20 80 Q 80 70 150 50" fill="none" stroke="#D4AF37" stroke-dasharray="3 3"/>
+                                        <!-- Couple walking side by side silhouette -->
+                                        <circle cx="40" cy="65" r="5" fill="#FAF6F0"/>
+                                        <circle cx="52" cy="63" r="5" fill="#1E332B" stroke="#D4AF37"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-lg font-bold text-gold">🕋 07 — Menuju Janji Suci</h3>
+                                <p class="text-xs text-champagne/90 leading-relaxed">
+                                    “Dari sebuah komunitas. Dari sebuah pesan sederhana. Dari niat menjadi admin. Dari benih cinta yang Allah tumbuhkan. Dari dua kali penolakan. Hingga akhirnya Allah mempertemukan kami dengan jawaban pada lamaran ketiga.<br><br>
+                                    Kini kami melangkah menuju janji suci. Semoga Allah memberkahi langkah ini dan menjadikan pernikahan kami jalan menuju sakinah, mawaddah, wa rahmah.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: AYAT PERNIKAHAN -->
+        <section class="py-20 px-6 bg-darkgreen text-center relative overflow-hidden">
+            <!-- Glow background Ka'bah -->
+            <div class="max-w-2xl mx-auto glass-card rounded-3xl p-8 md:p-12 space-y-6 relative border border-gold/30">
+                
+                <div class="w-16 h-16 mx-auto rounded-full bg-gold/10 flex items-center justify-center text-gold text-2xl border border-gold/30">
+                    <i class="fas fa-quran"></i>
+                </div>
+
+                <p class="arabic-title text-2xl md:text-3xl text-gold-gradient leading-loose">
+                    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+                </p>
+
+                <p class="text-xs md:text-sm text-champagne/90 leading-relaxed italic">
+                    “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari mekahmu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang.”
+                </p>
+
+                <p class="font-serif font-bold text-gold text-sm tracking-widest">
+                    QS. AR-RUM: 21
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 6: MOHON DOA RESTU -->
+        <section class="py-16 px-6 bg-deepgreen text-center">
+            <div class="max-w-xl mx-auto space-y-6">
+                <div class="w-20 h-20 mx-auto rounded-full bg-darkgreen flex items-center justify-center text-gold text-3xl border border-gold/30">
+                    🤲
+                </div>
+                <h2 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold">MOHON DOA RESTU</h2>
+                <p class="text-xs md:text-sm text-champagne/90 leading-relaxed max-w-md mx-auto">
+                    “Mohon doa restu untuk perjalanan baru kami.<br>
+                    Semoga Allah menjadikan pernikahan ini sebagai jalan untuk semakin dekat kepada-Nya, saling menguatkan dalam ketaatan, dan bersama-sama menuju Jannah-Nya.”
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 7: KIRIM UCAPAN & RSVP -->
+        <section class="py-20 px-6 bg-darkgreen">
+            <div class="max-w-xl mx-auto space-y-8">
+                
+                <div class="text-center space-y-2">
+                    <p class="text-xs tracking-[0.3em] uppercase text-champagne">Doa & Harapan</p>
+                    <h2 class="font-serif text-3xl text-gold-gradient font-bold">💌 KIRIM UCAPAN & RSVP</h2>
+                    <p class="text-xs text-champagne/70">Kirimkan doa terbaik dan konfirmasi kehadiran Anda</p>
+                </div>
+
+                <!-- Form Card -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 space-y-6 border border-gold/30">
+                    <form id="wishes-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-champagne/90 mb-2">Nama Anda</label>
+                            <input type="text" id="input-name" required placeholder="Masukkan nama Anda..." class="w-full px-4 py-3 rounded-xl bg-darkgreen/80 border border-gold/30 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-gold transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-champagne/90 mb-2">Ucapan / Doa Restu</label>
+                            <textarea id="input-message" rows="3" required placeholder="Tuliskan doa & ucapan selamat..." class="w-full px-4 py-3 rounded-xl bg-darkgreen/80 border border-gold/30 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-gold transition-colors"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-champagne/90 mb-2">Konfirmasi Kehadiran</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-darkgreen/60 border border-gold/20 cursor-pointer hover:border-gold/50">
+                                    <input type="radio" name="presence" value="InsyaAllah Hadir" checked class="accent-gold">
+                                    <span class="text-xs text-champagne">☑️ InsyaAllah hadir</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-darkgreen/60 border border-gold/20 cursor-pointer hover:border-gold/50">
+                                    <input type="radio" name="presence" value="Belum Dapat Hadir" class="accent-gold">
+                                    <span class="text-xs text-champagne">☑️ Belum dapat hadir</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-gold via-yellow-500 to-champagne text-darkgreen font-semibold text-sm uppercase tracking-wider shadow-lg hover:brightness-110 transition-all cursor-pointer">
+                            Kirim Ucapan 🤍
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Wishes Feed List -->
+                <div class="space-y-3">
+                    <h3 class="text-sm uppercase tracking-widest text-champagne font-semibold text-center">Ucapan dari Sahabat & Keluarga</h3>
+                    <div id="wishes-list" class="space-y-3 max-h-80 overflow-y-auto pr-2">
+                        <!-- Initial Wishes Items -->
+                        <div class="glass-card rounded-2xl p-4 space-y-1.5 border border-gold/20">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-sm text-gold">Ustadz Hanif & Keluarga</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/20 text-gold">InsyaAllah Hadir</span>
+                            </div>
+                            <p class="text-xs text-champagne/90">"Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Semoga menjadi keluarga sakinah, mawaddah, wa rahmah."</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 space-y-1.5 border border-gold/20">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-sm text-gold">Ahmad & Fatimah</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/20 text-gold">InsyaAllah Hadir</span>
+                            </div>
+                            <p class="text-xs text-champagne/90">"MasyaAllah terharu melihat perjalanan kalian dari komunitas hingga ke pelaminan. Selamat Muthmainnah & Angga!"</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SHARE & LINKS UTILITY SECTION -->
+        <section class="py-12 px-6 bg-deepgreen border-t border-gold/20 text-center">
+            <div class="max-w-md mx-auto space-y-4">
+                <p class="text-xs text-champagne uppercase tracking-widest">Bagikan Kebahagiaan Ini</p>
+                <div class="flex justify-center items-center gap-3">
+                    <button id="btn-copy-link" class="py-2.5 px-5 rounded-xl glass-card text-gold text-xs font-semibold hover:border-gold flex items-center gap-2 cursor-pointer transition-all">
+                        <i class="fas fa-copy"></i>
+                        <span>Copy Link</span>
+                    </button>
+                    <button id="btn-share-wa" class="py-2.5 px-5 rounded-xl glass-card text-gold text-xs font-semibold hover:border-gold flex items-center gap-2 cursor-pointer transition-all">
+                        <i class="fab fa-whatsapp text-lg text-green-400"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button id="btn-native-share" class="py-2.5 px-5 rounded-xl glass-card text-gold text-xs font-semibold hover:border-gold flex items-center gap-2 cursor-pointer transition-all">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Bagikan</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: CLOSING (GOLDEN HOUR MASJIDIL HARAM) -->
+        <section class="py-24 px-6 bg-gradient-to-b from-darkgreen via-deepgreen to-darkgreen text-center relative overflow-hidden">
+            <div class="max-w-2xl mx-auto space-y-8 relative z-10">
+                
+                <!-- Golden Hour Vector Icon -->
+                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-b from-yellow-500/20 to-gold/40 flex items-center justify-center text-4xl text-gold border-2 border-gold/40 shadow-2xl">
+                    🌅
+                </div>
+
+                <div class="space-y-4">
+                    <p class="font-serif text-lg md:text-xl text-champagne italic">
+                        “Jika pertemuan ini adalah takdir yang Allah tuliskan...”
+                    </p>
+                    <p class="font-serif text-lg md:text-xl text-gold-gradient font-bold">
+                        “Maka semoga pernikahan ini menjadi ibadah yang Allah berkahi.”
+                    </p>
+                </div>
+
+                <div class="space-y-2 py-4">
+                    <h2 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold">Muthmainnatus Sa'diyah Mamu</h2>
+                    <p class="text-gold font-serif text-lg">&</p>
+                    <h2 class="font-serif text-2xl md:text-3xl text-gold-gradient font-bold">Angga April Liano</h2>
+                    <p class="text-xs tracking-widest text-champagne/80 mt-2">JUMAT, 9 OKTOBER 2026</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 max-w-lg mx-auto space-y-3 border border-gold/30">
+                    <p class="arabic-title text-2xl text-gold-gradient">اللَّهُمَّ بَارِكْ لَنَا وَبَارِكْ عَلَيْنَا وَاجْمَعْ بَيْنَنَا فِي خَيْرٍ</p>
+                    <p class="text-xs text-champagne/90">Aamiin ya Rabbal 'alamin. 🤍</p>
+                </div>
+
+                <div class="pt-12 text-[11px] text-champagne/40 font-mono tracking-wider">
+                    Digital Islamic Wedding Invitation • Muthmainnah & Angga
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INTERACTIVE SCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. URL GUEST NAME PARSER
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            const guestDisplayEl = document.getElementById('guest-name-display');
+            if (guestName) {
+                // Replace hyphens or pluses with spaces
+                const formattedName = decodeURIComponent(guestName.replace(/[-+]/g, ' '));
+                guestDisplayEl.textContent = formattedName;
+            }
+
+            // 2. PROCEDURAL BACKGROUND MUSIC (Web Audio API Synthesizer - No External URL Dependencies!)
+            let audioCtx = null;
+            let isPlaying = false;
+            let synthInterval = null;
+
+            function playSoftAmbientHarp() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                // Pentatonic major scale for serene, soothing Islamic wedding mood (C, D, E, G, A)
+                const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33];
+                
+                synthInterval = setInterval(() => {
+                    if (!isPlaying) return;
+                    const freq = notes[Math.floor(Math.random() * notes.length)];
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                    // Soft attack & long decay (Harp/Celesta effect)
+                    gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.1);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.5);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 2.6);
+                }, 800);
+            }
+
+            const musicBtn = document.getElementById('music-toggle-btn');
+            const musicIcon = document.getElementById('music-icon');
+            const audioControlDiv = document.getElementById('audio-control');
+
+            function toggleMusic() {
+                if (isPlaying) {
+                    isPlaying = false;
+                    if (synthInterval) clearInterval(synthInterval);
+                    musicIcon.classList.remove('animate-spin-slow');
+                    musicIcon.classList.replace('fa-music', 'fa-volume-mute');
+                } else {
+                    isPlaying = true;
+                    playSoftAmbientHarp();
+                    musicIcon.classList.add('animate-spin-slow');
+                    musicIcon.classList.replace('fa-volume-mute', 'fa-music');
+                }
+            }
+
+            musicBtn.addEventListener('click', toggleMusic);
+
+            // 3. OPEN INVITATION BUTTON HANDLER
+            const btnOpen = document.getElementById('btn-open-invitation');
+            const coverScreen = document.getElementById('cover-screen');
+            const mainContent = document.getElementById('main-content');
+
+            btnOpen.addEventListener('click', () => {
+                // Trigger Music
+                isPlaying = true;
+                playSoftAmbientHarp();
+                audioControlDiv.classList.remove('hidden');
+
+                // Burst extra flower petals
+                burstPetals(30);
+
+                // Hide Cover & Show Main Content
+                coverScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    coverScreen.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    setTimeout(() => {
+                        mainContent.classList.remove('opacity-0');
+                    }, 50);
+                }, 800);
+            });
+
+            // 4. FALLING PETALS CANVAS ANIMATION
+            const canvas = document.getElementById('petal-canvas');
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const petals = [];
+            const petalColors = ['#E8C5C8', '#FAF6F0', '#E6C594', '#D4AF37'];
+
+            class Petal {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = -20;
+                    this.size = Math.random() * 8 + 6;
+                    this.speedY = Math.random() * 1.5 + 0.8;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.angle = Math.random() * 360;
+                    this.spin = Math.random() * 2 - 1;
+                    this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+                    this.opacity = Math.random() * 0.6 + 0.3;
+                }
+
+                update() {
+                    this.y += this.speedY;
+                    this.x += Math.sin(this.y / 30) + this.speedX;
+                    this.angle += this.spin;
+
+                    if (this.y > height + 20) {
+                        this.reset();
+                    }
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate((this.angle * Math.PI) / 180);
+                    ctx.globalAlpha = this.opacity;
+                    ctx.fillStyle = this.color;
+
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.quadraticCurveTo(this.size, -this.size, this.size, 0);
+                    ctx.quadraticCurveTo(this.size, this.size, 0, 0);
+                    ctx.fill();
+
+                    ctx.restore();
+                }
+            }
+
+            for (let i = 0; i < 35; i++) {
+                petals.push(new Petal());
+            }
+
+            function burstPetals(count) {
+                for (let i = 0; i < count; i++) {
+                    const p = new Petal();
+                    p.y = Math.random() * height * 0.5;
+                    petals.push(p);
+                }
+            }
+
+            function animatePetals() {
+                ctx.clearRect(0, 0, width, height);
+                petals.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animatePetals);
+            }
+            animatePetals();
+
+            // 5. COUNTDOWN AUTOMATION (Target: 9 Oct 2026 09:00 WIB)
+            const targetDate = new Date('2026-10-09T09:00:00+07:00').getTime();
+
+            const cdDays = document.getElementById('cd-days');
+            const cdHours = document.getElementById('cd-hours');
+            const cdMinutes = document.getElementById('cd-minutes');
+            const cdSeconds = document.getElementById('cd-seconds');
+            const cdContainer = document.getElementById('countdown-container');
+            const cdArrivedMsg = document.getElementById('countdown-arrived-msg');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    cdContainer.classList.add('hidden');
+                    cdArrivedMsg.classList.remove('hidden');
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                cdDays.textContent = String(days).padStart(2, '0');
+                cdHours.textContent = String(hours).padStart(2, '0');
+                cdMinutes.textContent = String(minutes).padStart(2, '0');
+                cdSeconds.textContent = String(seconds).padStart(2, '0');
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // 6. FORM WISHES & RSVP INTERACTION
+            const wishesForm = document.getElementById('wishes-form');
+            const wishesList = document.getElementById('wishes-list');
+
+            wishesForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('input-name').value;
+                const message = document.getElementById('input-message').value;
+                const presence = document.querySelector('input[name="presence"]:checked').value;
+
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl p-4 space-y-1.5 border border-gold/40 animate-fade-up';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-semibold text-sm text-gold">${escapeHtml(name)}</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold/20 text-gold">${escapeHtml(presence)}</span>
+                    </div>
+                    <p class="text-xs text-champagne/90">"${escapeHtml(message)}"</p>
+                `;
+
+                wishesList.prepend(card);
+                wishesForm.reset();
+
+                // Custom Notification Feedback
+                showToast("Terima kasih atas doa & konfirmasi Anda! 🤍");
+            });
+
+            function escapeHtml(str) {
+                return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            }
+
+            // Simple Notification Toast
+            function showToast(msg) {
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 px-6 py-3 rounded-full glass-card border border-gold text-gold text-xs font-semibold shadow-2xl z-50 animate-bounce';
+                toast.textContent = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            }
+
+            // 7. SHARE BUTTON HANDLERS
+            const btnCopyLink = document.getElementById('btn-copy-link');
+            const btnShareWa = document.getElementById('btn-share-wa');
+            const btnNativeShare = document.getElementById('btn-native-share');
+
+            btnCopyLink.addEventListener('click', () => {
+                const tempInput = document.createElement('input');
+                tempInput.value = window.location.href;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast("Link undangan berhasil disalin!");
+            });
+
+            btnShareWa.addEventListener('click', () => {
+                const text = encodeURIComponent(`Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Anda untuk menghadiri pernikahan kami:\n\nMuthmainnatus Sa'diyah Mamu & Angga April Liano\n\nInfo lengkap & undangan digital dapat diakses melalui link berikut:\n${window.location.href}`);
+                window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+            });
+
+            btnNativeShare.addEventListener('click', async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: "Undangan Pernikahan Muthmainnah & Angga",
+                            text: "Walimatul 'Ursy Muthmainnatus Sa'diyah Mamu & Angga April Liano",
+                            url: window.location.href,
+                        });
+                    } catch (err) {
+                        console.log("Share skipped");
+                    }
+                } else {
+                    btnCopyLink.click();
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
